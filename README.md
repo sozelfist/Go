@@ -90,16 +90,15 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 
 ##### Functions:
 
-1. [`NewLRU`](./cache/lru.go#L22): NewLRU represent initiate lru cache with capacity
-2. [`NewLFU`](./cache/lfu.go#L33): NewLFU represent initiate lfu cache with capacity
-3. [`Get`](./cache/lfu.go#L52): Get the value by key from LFU cache
-4. [`Put`](./cache/lfu.go#L66): Put the key and value in LFU cache
+1. [`NewLFU`](./cache/lfu.go#L33):  NewLFU init the LFU cache with capacity
+2. [`NewLRU`](./cache/lru.go#L23):  NewLRU represent initiate lru cache with capacity
 
 ---
 ##### Types
 
-1. [`LRU`](./cache/lru.go#L15): Default the struct of lru cache algorithm.
-2. [`LFU`](./cache/lfu.go#L19): Default the struct of lfu cache algorithm.
+1. [`LFU`](./cache/lfu.go#L19): No description provided.
+
+2. [`LRU`](./cache/lru.go#L15): No description provided.
 
 
 ---
@@ -125,7 +124,7 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 
 ##### Functions:
 
-1. [`CatalanNumber`](./math/catalan/catalannumber.go#L16):  CatalanNumber This function returns the `nth` Catalan number
+1. [`CatalanNumber`](./math/catalan/catalannumber.go#L24):  CatalanNumber This function returns the `nth` Catalan number
 
 ---
 </details><details>
@@ -145,6 +144,25 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 ##### Types
 
 1. [`CRCModel`](./checksum/crc8.go#L15): No description provided.
+
+
+---
+</details><details>
+	<summary> <strong> circularqueue </strong> </summary>	
+
+---
+
+#####  Package queue provides an implementation of a circular queue data structure.
+
+---
+##### Functions:
+
+1. [`NewCircularQueue`](./structure/circularqueue/circularqueuearray.go#L29):  NewCircularQueue creates a new CircularQueue with the given size. Returns an error if the size is less than or equal to 0.
+
+---
+##### Types
+
+1. [`CircularQueue`](./structure/circularqueue/circularqueuearray.go#L20): No description provided.
 
 
 ---
@@ -191,12 +209,25 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 
 ---
 
+##### /*
+rlecoding.go
+description: run length encoding and decoding
+details:
+Run-length encoding (RLE) is a simple form of data compression in which runs of data are stored as a single data value and count, rather than as the original run. This is useful when the data contains many repeated values. For example, the data "WWWWWWWWWWWWBWWWWWWWWWWWWBBB" can be compressed to "12W1B12W3B". The algorithm is simple and can be implemented in a few lines of code.
+author(s) [ddaniel27](https://github.com/ddaniel27)
+ 
+
+---
 ##### Functions:
 
 1. [`HuffDecode`](./compression/huffmancoding.go#L104):  HuffDecode recursively decodes the binary code in, by traversing the Huffman compression tree pointed by root. current stores the current node of the traversing algorithm. out stores the current decoded string.
 2. [`HuffEncode`](./compression/huffmancoding.go#L93):  HuffEncode encodes the string in by applying the mapping defined by codes.
 3. [`HuffEncoding`](./compression/huffmancoding.go#L76):  HuffEncoding recursively traverses the Huffman tree pointed by node to obtain the map codes, that associates a rune with a slice of booleans. Each code is prefixed by prefix and left and right children are labelled with the booleans false and true, respectively.
 4. [`HuffTree`](./compression/huffmancoding.go#L33):  HuffTree returns the root Node of the Huffman tree by compressing listfreq. The compression produces the most optimal code lengths, provided listfreq is ordered, i.e.: listfreq[i] <= listfreq[j], whenever i < j.
+5. [`RLEdecode`](./compression/rlecoding.go#L34):  RLEdecode takes a run-length encoded string and returns the original string
+6. [`RLEdecodebytes`](./compression/rlecoding.go#L64):  RLEdecodebytes takes a run-length encoded byte slice and returns the original byte slice
+7. [`RLEncode`](./compression/rlecoding.go#L19):  RLEncode takes a string and returns its run-length encoding
+8. [`RLEncodebytes`](./compression/rlecoding.go#L47):  RLEncodebytes takes a byte slice and returns its run-length encoding as a byte slice
 
 ---
 ##### Types
@@ -229,8 +260,8 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 
 1. [`Base64Decode`](./conversion/base64.go#L57):  Base64Decode decodes the received input base64 string into a byte slice. The implementation follows the RFC4648 standard, which is documented at https://datatracker.ietf.org/doc/html/rfc4648#section-4
 2. [`Base64Encode`](./conversion/base64.go#L19):  Base64Encode encodes the received input bytes slice into a base64 string. The implementation follows the RFC4648 standard, which is documented at https://datatracker.ietf.org/doc/html/rfc4648#section-4
-3. [`BinaryToDecimal`](./conversion/binarytodecimal.go#L25):  BinaryToDecimal() function that will take Binary number as string, and return its Decimal equivalent as integer.
-4. [`DecimalToBinary`](./conversion/decimaltobinary.go#L32):  DecimalToBinary() function that will take Decimal number as int, and return its Binary equivalent as string.
+3. [`BinaryToDecimal`](./conversion/binarytodecimal.go#L25):  BinaryToDecimal() function that will take Binary number as string, and return its Decimal equivalent as an integer.
+4. [`DecimalToBinary`](./conversion/decimaltobinary.go#L32):  DecimalToBinary() function that will take Decimal number as int, and return its Binary equivalent as a string.
 5. [`FuzzBase64Encode`](./conversion/base64_test.go#L113): No description provided.
 6. [`HEXToRGB`](./conversion/rgbhex.go#L10):  HEXToRGB splits an RGB input (e.g. a color in hex format; 0x<color-code>) into the individual components: red, green and blue
 7. [`IntToRoman`](./conversion/inttoroman.go#L17):  IntToRoman converts an integer value to a roman numeral string. An error is returned if the integer is not between 1 and 3999.
@@ -290,7 +321,7 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 
 ---
 
-#####  Package dynamic is a package of certain implementations of dynamically run algorithms.
+#####  filename: traprainwater.go description: Provides a function to calculate the amount of trapped rainwater between bars represented by an elevation map using dynamic programming. details: The TrapRainWater function calculates the amount of trapped rainwater between the bars represented by the given elevation map. It uses dynamic programming to precompute the maximum height of bars to the left and right of each position. Then, it iterates through the array to calculate the amount of trapped rainwater at each position based on the minimum of the left and right maximum heights. Finally, it sums up the trapped rainwater for all positions and returns the total amount. author(s) [TruongNhanNguyen (SOZEL)](https://github.com/TruongNhanNguyen) See https://leetcode.com/problems/unique-paths/ author: Rares Mateizer (https://github.com/rares985) Package dynamic is a package of certain implementations of dynamically run algorithms.
 
 ---
 ##### Functions:
@@ -314,7 +345,9 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 17. [`Max`](./dynamic/knapsack.go#L11):  Max function - possible duplicate
 18. [`NthCatalanNumber`](./dynamic/catalan.go#L13):  NthCatalan returns the n-th Catalan Number Complexity: O(n²)
 19. [`NthFibonacci`](./dynamic/fibonacci.go#L6):  NthFibonacci returns the nth Fibonacci Number
-20. [`TrapRainWater`](./dynamic/traprainwater.go#L17): Calculate the amount of trapped rainwater between bars represented by an elevation map using dynamic programming.
+20. [`TrapRainWater`](./dynamic/traprainwater.go#L17):  TrapRainWater calculates the amount of trapped rainwater between the bars represented by the given elevation map. It uses dynamic programming to precompute the maximum height of bars to the left and right of each position. Then, it iterates through the array to calculate the amount of trapped rainwater at each position based on the minimum of the left and right maximum heights. Finally, it sums up the trapped rainwater for all positions and returns the total amount.
+21. [`UniquePaths`](./dynamic/uniquepaths.go#L6):  UniquePaths implements the solution to the "Unique Paths" problem
+
 ---
 </details><details>
 	<summary> <strong> dynamicarray </strong> </summary>	
@@ -340,9 +373,28 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 ---
 ##### Functions:
 
-1. [`Iterative`](./math/factorial/factorial.go#L12):  Iterative returns the iteratively brute forced factorial of n
-2. [`Recursive`](./math/factorial/factorial.go#L21):  Recursive This function recursively computes the factorial of a number
-3. [`UsingTree`](./math/factorial/factorial.go#L30):  UsingTree This function finds the factorial of a number using a binary tree
+1. [`Iterative`](./math/factorial/factorial.go#L18):  Iterative returns the iteratively brute forced factorial of n
+2. [`Recursive`](./math/factorial/factorial.go#L30):  Recursive This function recursively computes the factorial of a number
+3. [`UsingTree`](./math/factorial/factorial.go#L42):  UsingTree This function finds the factorial of a number using a binary tree
+
+---
+</details><details>
+	<summary> <strong> fenwicktree </strong> </summary>	
+
+---
+
+#####  Fenwick Tree Data Structure for efficient range queries on an array of integers. Also known as Binary Indexed Tree. It can query the sum of any range of the array and can update the array at a specific position by adding a value to it (point update). Build: O(N) Query: O(log(N)) Update: O(log(N)) reference: https://brilliant.org/wiki/fenwick-tree/
+
+---
+##### Functions:
+
+1. [`NewFenwickTree`](./structure/fenwicktree/fenwicktree.go#L20):  NewFenwickTree creates a new Fenwick tree, initializes bit with the values of the array. Note that the queries and updates should have one based indexing.
+
+---
+##### Types
+
+1. [`FenwickTree`](./structure/fenwicktree/fenwicktree.go#L11): No description provided.
+
 
 ---
 </details><details>
@@ -452,17 +504,18 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 2. [`BreadthFirstSearch`](./graph/breadthfirstsearch.go#L9):  BreadthFirstSearch is an algorithm for traversing and searching graph data structures. It starts at an arbitrary node of a graph, and explores all of the neighbor nodes at the present depth prior to moving on to the nodes at the next depth level. Worst-case performance	 		O(|V|+|E|)=O(b^{d})}O(|V|+|E|)=O(b^{d}) Worst-case space complexity	 	O(|V|)=O(b^{d})}O(|V|)=O(b^{d}) reference: https://en.wikipedia.org/wiki/Breadth-first_search
 3. [`DepthFirstSearch`](./graph/depthfirstsearch.go#L53): No description provided.
 4. [`DepthFirstSearchHelper`](./graph/depthfirstsearch.go#L21): No description provided.
-5. [`FloydWarshall`](./graph/floydwarshall.go#L15):  FloydWarshall Returns all pair's shortest path using Floyd Warshall algorithm
-6. [`GetIdx`](./graph/depthfirstsearch.go#L3): No description provided.
-7. [`KruskalMST`](./graph/kruskal.go#L23): No description provided.
-8. [`PrimMST`](./graph/prim.go#30): Computes the minimum spanning tree of a weighted undirected graph
-9. [`LowestCommonAncestor`](./graph/lowestcommonancestor.go#L111):  For each node, we will precompute its ancestor above him, its ancestor two nodes above, its ancestor four nodes above, etc. Let's call `jump[j][u]` is the `2^j`-th ancestor above the node `u` with `u` in range `[0, numbersVertex)`, `j` in range `[0,MAXLOG)`. These information allow us to jump from any node to any ancestor above it in `O(MAXLOG)` time.
-10. [`New`](./graph/graph.go#L16):  Constructor functions for graphs (undirected by default)
-11. [`NewTree`](./graph/lowestcommonancestor.go#L84): No description provided.
-12. [`NewUnionFind`](./graph/unionfind.go#L24):  Initialise a new union find data structure with s nodes
-13. [`NotExist`](./graph/depthfirstsearch.go#L12): No description provided.
-14. [`Topological`](./graph/topological.go#L7):  Topological assumes that graph given is valid and that its possible to get a topological ordering. constraints are array of []int{a, b}, representing an edge going from a to b
-15. [`Edmond-Karp`](./graph/edmondkarp.go#L43): Computes the maximum possible flow between a pair of s-t vertices in a weighted graph
+5. [`EdmondKarp`](./graph/edmondkarp.go#L43): No description provided.
+6. [`FindPath`](./graph/edmondkarp.go#L16):  Returns a mapping of vertices as path, if there is any from source to sink Otherwise, returns nil
+7. [`FloydWarshall`](./graph/floydwarshall.go#L15):  FloydWarshall Returns all pair's shortest path using Floyd Warshall algorithm
+8. [`GetIdx`](./graph/depthfirstsearch.go#L3): No description provided.
+9. [`Kahn`](./graph/kahn.go#L15):  Kahn's algorithm computes a topological ordering of a directed acyclic graph (DAG). `n` is the number of vertices, `dependencies` is a list of directed edges, where each pair [a, b] represents a directed edge from a to b (i.e. b depends on a). Vertices are assumed to be labelled 0, 1, ..., n-1. If the graph is not a DAG, the function returns nil.
+10. [`KruskalMST`](./graph/kruskal.go#L23): No description provided.
+11. [`LowestCommonAncestor`](./graph/lowestcommonancestor.go#L111):  For each node, we will precompute its ancestor above him, its ancestor two nodes above, its ancestor four nodes above, etc. Let's call `jump[j][u]` is the `2^j`-th ancestor above the node `u` with `u` in range `[0, numbersVertex)`, `j` in range `[0,MAXLOG)`. These information allow us to jump from any node to any ancestor above it in `O(MAXLOG)` time.
+12. [`New`](./graph/graph.go#L16):  Constructor functions for graphs (undirected by default)
+13. [`NewTree`](./graph/lowestcommonancestor.go#L84): No description provided.
+14. [`NewUnionFind`](./graph/unionfind.go#L25):  Initialise a new union find data structure with s nodes
+15. [`NotExist`](./graph/depthfirstsearch.go#L12): No description provided.
+16. [`Topological`](./graph/topological.go#L7):  Topological assumes that graph given is valid and that its possible to get a topological ordering. constraints are array of []int{a, b}, representing an edge going from a to b
 
 ---
 ##### Types
@@ -479,10 +532,14 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 
 6. [`TreeEdge`](./graph/lowestcommonancestor.go#L12): No description provided.
 
-7. [`UnionFind`](./graph/unionfind.go#L18): No description provided.
+7. [`UnionFind`](./graph/unionfind.go#L19): No description provided.
 
 8. [`WeightedGraph`](./graph/floydwarshall.go#L9): No description provided.
 
+9. [`minEdge`](#L0): 
+
+	Methods:
+	1. [`Len`](./graph/prim.go#L14): No description provided.
 
 ---
 </details><details>
@@ -505,8 +562,8 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 
 ##### Functions:
 
-1. [`Make`](./structure/hashmap/hashmap.go#L32):  Make creates a new HashMap instance with input size and capacity
-2. [`New`](./structure/hashmap/hashmap.go#L24):  New return new HashMap instance
+1. [`DefaultNew`](./structure/hashmap/hashmap.go#L24):  DefaultNew returns a new HashMap instance with default values
+2. [`New`](./structure/hashmap/hashmap.go#L32):  New creates a new HashMap instance with the specified size and capacity
 
 ---
 ##### Types
@@ -834,7 +891,7 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 
 1. [`GenerateElementSet`](./math/permutation/heaps.go#L37): No description provided.
 2. [`Heaps`](./math/permutation/heaps.go#L8):  Heap's Algorithm for generating all permutations of n objects
-3. [`NextPermutation`](./math/permutation/next_permutation.go#8): A solution to find next permutation of an integer array in constant memory
+3. [`NextPermutation`](./math/permutation/next_permutation.go#L8): No description provided.
 
 ---
 </details><details>
@@ -890,6 +947,12 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 
 ---
 
+#####  sieve2.go - Sieve of Eratosthenes
+ * Algorithm to generate prime numbers up to a limit
+ * Author: ddaniel27
+ 
+
+---
 ##### Functions:
 
 1. [`Factorize`](./math/prime/primefactorization.go#L5):  Factorize is a function that computes the exponents of each prime in the prime factorization of n
@@ -902,8 +965,9 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 8. [`MillerTestMultiple`](./math/prime/millerrabintest.go#L84):  MillerTestMultiple is like MillerTest but runs the test for multiple witnesses.
 9. [`OptimizedTrialDivision`](./math/prime/primecheck.go#L26):  OptimizedTrialDivision checks primality of an integer using an optimized trial division method. The optimizations include not checking divisibility by the even numbers and only checking up to the square root of the given number.
 10. [`Sieve`](./math/prime/sieve.go#L16):  Sieve Sieving the numbers that are not prime from the channel - basically removing them from the channels
-11. [`TrialDivision`](./math/prime/primecheck.go#L9):  TrialDivision tests whether a number is prime by trying to divide it by the numbers less than it.
-12. [`Twin`](./math/prime/twin.go#L15):  This function returns twin prime for given number returns (n + 2) if both n and (n + 2) are prime -1 otherwise
+11. [`SieveEratosthenes`](./math/prime/sieve2.go#L7): No description provided.
+12. [`TrialDivision`](./math/prime/primecheck.go#L9):  TrialDivision tests whether a number is prime by trying to divide it by the numbers less than it.
+13. [`Twin`](./math/prime/twin.go#L15):  This function returns twin prime for given number returns (n + 2) if both n and (n + 2) are prime -1 otherwise
 
 ---
 </details><details>
@@ -948,6 +1012,17 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 
 ---
 </details><details>
+	<summary> <strong> railfence </strong> </summary>	
+
+---
+
+##### Functions:
+
+1. [`Decrypt`](./cipher/railfence/railfence.go#L44): No description provided.
+2. [`Encrypt`](./cipher/railfence/railfence.go#L7): No description provided.
+
+---
+</details><details>
 	<summary> <strong> rot13 </strong> </summary>	
 
 ---
@@ -965,7 +1040,12 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 
 ---
 
-#####  Package rsa shows a simple implementation of RSA algorithm
+#####  Package rsa shows a simple implementation of RSA algorithm/*
+rsa2.go
+description: RSA encryption and decryption including key generation
+details: [RSA wiki](https://en.wikipedia.org/wiki/RSA_(cryptosystem))
+author(s): [ddaniel27](https://github.com/ddaniel27)
+ 
 
 ---
 ##### Functions:
@@ -973,6 +1053,7 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 1. [`Decrypt`](./cipher/rsa/rsa.go#L43):  Decrypt decrypts encrypted rune slice based on the RSA algorithm
 2. [`Encrypt`](./cipher/rsa/rsa.go#L28):  Encrypt encrypts based on the RSA algorithm - uses modular exponentitation in math directory
 3. [`FuzzRsa`](./cipher/rsa/rsa_test.go#L79): No description provided.
+4. [`New`](./cipher/rsa/rsa2.go#L30):  New initializes the RSA algorithm returns the RSA object
 
 ---
 </details><details>
@@ -991,9 +1072,12 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 
 ---
 
+#####  Segment Tree Data Structure for efficient range queries on an array of integers. It can query the sum and update the elements to a new value of any range of the array. Build: O(n*log(n)) Query: O(log(n)) Update: O(log(n)) reference: https://cp-algorithms.com/data_structures/segment_tree.html
+
+---
 ##### Functions:
 
-1. [`NewSegmentTree`](./structure/segmenttree/segmenttree.go#L116): No description provided.
+1. [`NewSegmentTree`](./structure/segmenttree/segmenttree.go#L117):  NewSegmentTree returns a new instance of a SegmentTree. It takes an input array of integers representing Array, initializes and builds the SegmentTree.
 
 ---
 ##### Types
@@ -1030,7 +1114,7 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 
 ---
 
-#####  Package sort a package for demonstrating sorting algorithms in Go
+#####  Package sort a package for demonstrating sorting algorithms in Go Package sort implements various sorting algorithms.
 
 ---
 ##### Functions:
@@ -1039,27 +1123,29 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 2. [`Bogo`](./sort/bogosort.go#L32): No description provided.
 3. [`Bubble`](./sort/bubblesort.go#L9):  Bubble is a simple generic definition of Bubble sort algorithm.
 4. [`Bucket`](./sort/bucketsort.go#L7):  Bucket sorts a slice. It is mainly useful when input is uniformly distributed over a range.
-5. [`Cocktail`](./sort/cocktailsort.go#L9):  Cocktail sort is a variation of bubble sort, operating in two directions (beginning to end, end to beginning)
-6. [`Comb`](./sort/combSort.go#L17):  Comb is a simple sorting algorithm which is an improvement of the bubble sorting algorithm.
-7. [`Count`](./sort/countingsort.go#L11): No description provided.
-8. [`Cycle`](./sort/cyclesort.go#L10):  Cycle sort is an in-place, unstable sorting algorithm that is particularly useful when sorting arrays containing elements with a small range of values. It is theoretically optimal in terms of the total number of writes to the original array.
-9. [`Exchange`](./sort/exchangesort.go#L8): No description provided.
-10. [`HeapSort`](./sort/heapsort.go#L116): No description provided.
-11. [`ImprovedSimple`](./sort/simplesort.go#L27):  ImprovedSimple is a improve SimpleSort by skipping an unnecessary comparison of the first and last. This improved version is more similar to implementation of insertion sort
-12. [`Insertion`](./sort/insertionsort.go#L5): No description provided.
-13. [`Merge`](./sort/mergesort.go#L41):  Merge Perform merge sort on a slice
-14. [`MergeIter`](./sort/mergesort.go#L55): No description provided.
-15. [`Pancake`](./sort/pancakesort.go#L8):  Pancake sorts a slice using flip operations, where flip refers to the idea of reversing the slice from index `0` to `i`.
-16. [`ParallelMerge`](./sort/mergesort.go#L66):  ParallelMerge Perform merge sort on a slice using goroutines
-17. [`Partition`](./sort/quicksort.go#L12): No description provided.
-18. [`Patience`](./sort/patiencesort.go#L13): No description provided.
-19. [`Pigeonhole`](./sort/pigeonholesort.go#L15):  Pigeonhole sorts a slice using pigeonhole sorting algorithm. NOTE: To maintain time complexity O(n + N), this is the reason for having only Integer constraint instead of Ordered.
-20. [`Quicksort`](./sort/quicksort.go#L39):  Quicksort Sorts the entire array
-21. [`QuicksortRange`](./sort/quicksort.go#L26):  QuicksortRange Sorts the specified range within the array
-22. [`RadixSort`](./sort/radixsort.go#L43): No description provided.
-23. [`Selection`](./sort/selectionsort.go#L5): No description provided.
-24. [`Shell`](./sort/shellsort.go#L5): No description provided.
-25. [`Simple`](./sort/simplesort.go#L13): No description provided.
+5. [`Circle`](./sort/circlesort.go#L7):  Circle sorts an array using the circle sort algorithm.
+6. [`Cocktail`](./sort/cocktailsort.go#L9):  Cocktail sort is a variation of bubble sort, operating in two directions (beginning to end, end to beginning)
+7. [`Comb`](./sort/combSort.go#L17):  Comb is a simple sorting algorithm which is an improvement of the bubble sorting algorithm.
+8. [`Count`](./sort/countingsort.go#L11): No description provided.
+9. [`Cycle`](./sort/cyclesort.go#L10):  Cycle sort is an in-place, unstable sorting algorithm that is particularly useful when sorting arrays containing elements with a small range of values. It is theoretically optimal in terms of the total number of writes to the original array.
+10. [`Exchange`](./sort/exchangesort.go#L8): No description provided.
+11. [`HeapSort`](./sort/heapsort.go#L116): No description provided.
+12. [`ImprovedSimple`](./sort/simplesort.go#L27):  ImprovedSimple is a improve SimpleSort by skipping an unnecessary comparison of the first and last. This improved version is more similar to implementation of insertion sort
+13. [`Insertion`](./sort/insertionsort.go#L5): No description provided.
+14. [`Merge`](./sort/mergesort.go#L41):  Merge Perform merge sort on a slice
+15. [`MergeIter`](./sort/mergesort.go#L55): No description provided.
+16. [`Pancake`](./sort/pancakesort.go#L8):  Pancake sorts a slice using flip operations, where flip refers to the idea of reversing the slice from index `0` to `i`.
+17. [`ParallelMerge`](./sort/mergesort.go#L66):  ParallelMerge Perform merge sort on a slice using goroutines
+18. [`Partition`](./sort/quicksort.go#L12): No description provided.
+19. [`Patience`](./sort/patiencesort.go#L13): No description provided.
+20. [`Pigeonhole`](./sort/pigeonholesort.go#L15):  Pigeonhole sorts a slice using pigeonhole sorting algorithm. NOTE: To maintain time complexity O(n + N), this is the reason for having only Integer constraint instead of Ordered.
+21. [`Quicksort`](./sort/quicksort.go#L39):  Quicksort Sorts the entire array
+22. [`QuicksortRange`](./sort/quicksort.go#L26):  QuicksortRange Sorts the specified range within the array
+23. [`RadixSort`](./sort/radixsort.go#L43): No description provided.
+24. [`Selection`](./sort/selectionsort.go#L5): No description provided.
+25. [`Shell`](./sort/shellsort.go#L5): No description provided.
+26. [`Simple`](./sort/simplesort.go#L13): No description provided.
+27. [`Timsort`](./sort/timsort.go#L13):  Timsort is a simple generic implementation of Timsort algorithm.
 
 ---
 ##### Types
@@ -1147,8 +1233,10 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 ##### Functions:
 
 1. [`NewAVL`](./structure/tree/avl.go#L54):  NewAVL creates a novel AVL tree
-2. [`NewBinarySearch`](./structure/tree/bstree.go#L46):  NewBinarySearch creates a novel Binary-Search tree
-3. [`NewRB`](./structure/tree/rbtree.go#L57):  NewRB creates a new Red-Black Tree
+2. [`NewBTree`](./structure/tree/btree.go#L35): No description provided.
+3. [`NewBTreeNode`](./structure/tree/btree.go#L24): No description provided.
+4. [`NewBinarySearch`](./structure/tree/bstree.go#L46):  NewBinarySearch creates a novel Binary-Search tree
+5. [`NewRB`](./structure/tree/rbtree.go#L57):  NewRB creates a new Red-Black Tree
 
 ---
 ##### Types
@@ -1159,11 +1247,15 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 
 3. [`BSNode`](./structure/tree/bstree.go#L15): No description provided.
 
-4. [`BinarySearch`](./structure/tree/bstree.go#L40): No description provided.
+4. [`BTree`](./structure/tree/btree.go#L15): No description provided.
 
-5. [`RB`](./structure/tree/rbtree.go#L51): No description provided.
+5. [`BTreeNode`](./structure/tree/btree.go#L8): No description provided.
 
-6. [`RBNode`](./structure/tree/rbtree.go#L25): No description provided.
+6. [`BinarySearch`](./structure/tree/bstree.go#L40): No description provided.
+
+7. [`RB`](./structure/tree/rbtree.go#L51): No description provided.
+
+8. [`RBNode`](./structure/tree/rbtree.go#L25): No description provided.
 
 
 ---
@@ -1199,19 +1291,6 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 1. [`Decrypt`](./cipher/xor/xor.go#L19):  Decrypt decrypts with Xor encryption
 2. [`Encrypt`](./cipher/xor/xor.go#L10):  Encrypt encrypts with Xor encryption after converting each character to byte The returned value might not be readable because there is no guarantee which is within the ASCII range If using other type such as string, []int, or some other types, add the statements for converting the type to []byte.
 3. [`FuzzXOR`](./cipher/xor/xor_test.go#L108): No description provided.
-
----
-</details>
-
-#####  Package rail fence is a classical type of transposition cipher ref : https://en.wikipedia.org/wiki/Rail_fence_cipher
-
----
-##### Functions:
-
-1. [`Encrypt`](.cipher/railfence/railfence.go#L7):  Encrypt encrypts a message using rail fence cipher
-2. [`Decrypt`](.cipher/railfence/railfence.go#L44):  decrypt decrypts a message using rail fence cipher
-3. [`TestEncrypt`](.cipher/railfence/railfence_test.go#L7) Test function for Encrypt
-4. [`TestDecrypt`](.cipher/railfence/railfence_test.go#L50) Test function for Decrypt
 
 ---
 </details>
